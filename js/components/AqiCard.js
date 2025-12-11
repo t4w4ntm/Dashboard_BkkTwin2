@@ -150,6 +150,7 @@ export class AqiCard extends HTMLElement {
                     display: flex;
                     flex-direction: column;
                     gap: 0.25rem;
+                    width: 100%;
                     max-width: 320px;
                     margin: 0 auto;
                 }
