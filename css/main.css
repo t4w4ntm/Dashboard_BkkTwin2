@@ -355,8 +355,8 @@ body::before {
 
     .topbar {
         padding: 0.875rem 1rem;
-        flex-direction: column;
-        gap: 0.75rem;
+        flex-direction: row;
+        gap: 0.5rem;
     }
 
     .brand {

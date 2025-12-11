@@ -145,6 +145,16 @@ export class AqiCard extends HTMLElement {
                 --gauge-percent: 0%;
             }
 
+            @media (max-width: 640px) {
+                :host {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.25rem;
+                    max-width: 320px;
+                    margin: 0 auto;
+                }
+            }
+
             .card {
                 background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(241, 245, 249, 0.9) 100%);
                 backdrop-filter: blur(20px);
@@ -322,19 +332,105 @@ export class AqiCard extends HTMLElement {
                 animation: pulseGlow 3s ease-in-out infinite;
             }
 
-            /* Responsive */
-            @media (max-width: 400px) {
+            /* Mobile List View */
+            @media (max-width: 640px) {
+                .card {
+                    padding: 0.875rem 1rem;
+                    border-radius: 12px;
+                }
+
+                .card:hover {
+                    transform: none;
+                }
+
+                .header {
+                    display: none;
+                }
+
                 .content {
-                    flex-direction: column;
-                    text-align: center;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 0.75rem;
+                }
+
+                .gauge-container {
+                    width: 50px;
+                    height: 50px;
+                    flex-shrink: 0;
+                }
+
+                .gauge::before {
+                    inset: 5px;
+                }
+
+                .aqi-value {
+                    font-size: 1rem;
+                }
+
+                .aqi-label {
+                    font-size: 0.5rem;
                 }
 
                 .data {
+                    flex-direction: row;
                     align-items: center;
+                    justify-content: space-between;
+                    flex: 1;
+                    gap: 0.5rem;
+                }
+
+                .pm25-display {
+                    flex-direction: row;
+                    align-items: baseline;
+                    gap: 0.25rem;
+                }
+
+                .pm25-value {
+                    font-size: 1.25rem;
+                }
+
+                .pm25-unit {
+                    font-size: 0.625rem;
+                }
+
+                .status-badge {
+                    flex-direction: column;
+                    align-items: flex-end;
+                    gap: 0;
+                }
+
+                .status-th {
+                    font-size: 0.75rem;
+                }
+
+                .status-en {
+                    font-size: 0.5rem;
+                }
+
+                .label {
+                    display: none;
+                }
+
+                .district-mobile {
+                    display: block;
+                    font-size: 0.7rem;
+                    font-weight: 600;
+                    color: #64748b;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    padding-left: 0.25rem;
+                    order: -1;
+                }
+            }
+
+            @media (min-width: 641px) {
+                .district-mobile {
+                    display: none;
                 }
             }
         </style>
 
+        <span class="district-mobile">${district}</span>
         <article class="card" role="meter" aria-labelledby="district-label" aria-valuemin="0" aria-valuemax="500" aria-valuenow="0">
             <div class="header">
                 <span class="district" id="district-label">${district}</span>
