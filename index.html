@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BangkokTwin • Dashboard 2.0</title>
+    <meta name="description"
+        content="Real-time environmental dashboard for Bangkok districts - Air Quality & Temperature monitoring">
+    <meta name="theme-color" content="#f0f5ff">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Prompt:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay" aria-hidden="true">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">ข้ามไปยังเนื้อหาหลัก</a>
+
+    <!-- Header -->
+    <header class="topbar" role="banner">
+        <div class="brand" aria-label="Bangkok Twin Dashboard">BangkokTwin</div>
+        <div class="status">
+            <time id="live-clock" datetime=""></time>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="dashboard-grid">
+
+        <!-- Air Quality Section -->
+        <section aria-labelledby="h-air">
+            <h2 id="h-air" class="section-title">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2" />
+                    <path d="M9.6 4.6A2 2 0 1 1 11 8H2" />
+                    <path d="M12.6 19.4A2 2 0 1 0 14 16H2" />
+                </svg>
+                คุณภาพอากาศ (Air Quality)
+            </h2>
+            <div class="card-grid">
+                <aqi-card district="คลองสาน" id="aqi-klong"></aqi-card>
+                <aqi-card district="ธนบุรี" id="aqi-thon"></aqi-card>
+                <aqi-card district="บางรัก" id="aqi-bang"></aqi-card>
+            </div>
+        </section>
+
+        <!-- Temperature Section -->
+        <section aria-labelledby="h-temp">
+            <h2 id="h-temp" class="section-title">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" />
+                </svg>
+                อุณหภูมิ (Temperature)
+            </h2>
+            <div class="card-grid">
+                <temp-card district="คลองสาน" id="temp-klong"></temp-card>
+                <temp-card district="ธนบุรี" id="temp-thon"></temp-card>
+                <temp-card district="บางรัก" id="temp-bang"></temp-card>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 BangkokTwin Dashboard • ข้อมูลอัปเดตอัตโนมัติทุก 15 วินาที</p>
+        <p>Data sources: ThingSpeak IoT Sensors</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+/* ========================================
+   BangkokTwin Dashboard - Design System
+   Light Theme - White & Blue
+   ======================================== */
+
+:root {
+    /* ===== Color Palette - Light Theme ===== */
+    /* Background Colors */
+    --bg-app: #f0f5ff;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --bg-card-hover: rgba(255, 255, 255, 1);
+    --bg-glass: rgba(255, 255, 255, 0.7);
+
+    /* Text Colors */
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+
+    /* Status Colors */
+    --color-good: #10b981;
+    --color-good-glow: rgba(16, 185, 129, 0.25);
+    --color-moderate: #f59e0b;
+    --color-moderate-glow: rgba(245, 158, 11, 0.25);
+    --color-unhealthy: #ef4444;
+    --color-unhealthy-glow: rgba(239, 68, 68, 0.25);
+    --color-very-unhealthy: #8b5cf6;
+    --color-hazardous: #dc2626;
+
+    /* Accent Colors - Blue Theme */
+    --color-accent: #2563eb;
+    --color-accent-glow: rgba(37, 99, 235, 0.25);
+    --color-accent-light: #3b82f6;
+    --color-accent-dark: #1d4ed8;
+
+    /* Temperature Colors */
+    --temp-cold: #06b6d4;
+    --temp-cool: #3b82f6;
+    --temp-warm: #f59e0b;
+    --temp-hot: #ef4444;
+
+    /* Gradients - Light Blue Theme */
+    --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    --gradient-accent: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    --gradient-warm: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    --gradient-cool: linear-gradient(135deg, #22d3ee 0%, #0ea5e9 100%);
+    --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(241, 245, 249, 0.9) 100%);
+    --gradient-bg: linear-gradient(180deg, #dbeafe 0%, #eff6ff 30%, #f0f5ff 100%);
+
+    /* ===== Layout ===== */
+    --gap-sm: 0.75rem;
+    --gap-md: 1.25rem;
+    --gap-lg: 2rem;
+    --gap-xl: 3rem;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+
+    /* ===== Effects ===== */
+    --shadow-sm: 0 2px 8px rgba(37, 99, 235, 0.08);
+    --shadow-md: 0 4px 20px rgba(37, 99, 235, 0.12);
+    --shadow-lg: 0 8px 40px rgba(37, 99, 235, 0.15);
+    --shadow-glow: 0 0 40px var(--color-accent-glow);
+
+    /* Glassmorphism - Light */
+    --glass-blur: blur(20px);
+    --glass-border: 1px solid rgba(37, 99, 235, 0.15);
+
+    /* ===== Animation ===== */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    --transition-slow: 500ms ease;
+    --transition-bounce: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Focus */
+    --focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.4);
+}
+
+/* ========================================
+   Base Reset & Typography
+   ======================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background: var(--gradient-bg);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: 'Noto Sans Thai', 'Prompt', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===== Accessibility ===== */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    background: var(--color-accent);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    z-index: 9999;
+    transition: top var(--transition-normal);
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+/* Selection */
+::selection {
+    background: var(--color-accent);
+    color: white;
+}
